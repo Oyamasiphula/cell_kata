@@ -1,3 +1,5 @@
+var allUserProperties = [];
+
 var person = function(name, dataSum) {
     this.username = name;
     this.data = dataSum;
@@ -22,9 +24,10 @@ function get1StUserData(){
                    .replace(",",':');
     dataSumPerPerson.push(userData)
   });
+  allUserProperties.push(dataSumPerPerson);
   return dataSumPerPerson
 };
-
+get1StUserData();
   // in all the reason using the forin its because I wanted to get proper values from my object and regenerate
   // a new array values by converting my object
 
@@ -41,8 +44,10 @@ function get2ndUserData(){
                            .replace(",",":");
     dataSumPerPerson.push(dataConsumed);
   });
+  allUserProperties.push(dataSumPerPerson)
   return dataSumPerPerson
 };
+get2ndUserData()
 
 function get3rdUserData(){
 
@@ -59,8 +64,10 @@ function get3rdUserData(){
                               .replace(",",":");
       dataSumPerPerson.push(dataConsumed)
     });
+    allUserProperties.push(dataSumPerPerson)
     return dataSumPerPerson
 };
+get3rdUserData();
 
 function get4thUserData(){
     var dataSumPerPerson = []
@@ -76,13 +83,28 @@ function get4thUserData(){
                               .replace(",",":");
       dataSumPerPerson.push(dataConsumed)
     });
+    allUserProperties.push(dataSumPerPerson)
     return dataSumPerPerson
 };
+get4thUserData()
 
-function getHighestUserDataConsumed(){
-return ""
+var toObject = function(allUserProperties){
+
+
+
 }
 
+allUserProperties.forEach(function(userProp){
+  userProp.forEach(function(userDataVals){
+    console.log(typeof(userDataVals));
+
+  })
+})
+
+function getHighestUserDataConsumed(){
+console.log("")
+return ""
+}
 
 module.exports.person = person;
 module.exports.get1StUserData = get1StUserData;
