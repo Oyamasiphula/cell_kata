@@ -88,27 +88,41 @@ function get4thUserData(){
 };
 get4thUserData()
 
-var toObject = function(allUserProperties){
+// var toObject = function(allUserProperties){
+//
+//
+//
+// }
 
+// allUserProperties.forEach(function(userProp){
+//   userProp.forEach(function(userDataVals){
+//     // console.log(typeof(userDataVals));
+//
+//   })
+// })
 
+// function getHighestUserDataConsumed(){
+// // console.log("")
+// return ""
+// }
 
-}
+var stillToBeConverted = allUserProperties;
+  var collection = stillToBeConverted.slice(); // make a copy
+  var keys = collection.shift()
 
-allUserProperties.forEach(function(userProp){
-  userProp.forEach(function(userDataVals){
-    console.log(typeof(userDataVals));
+  collection = collection.map(function (e) {
+      var obj = {};
 
-  })
-})
-
-function getHighestUserDataConsumed(){
-console.log("")
-return ""
-}
+      keys.forEach(function (key, i) {
+          obj[key] = e[i];
+      });
+      console.log(obj)
+      return obj;
+  });
 
 module.exports.person = person;
 module.exports.get1StUserData = get1StUserData;
 module.exports.get2ndUserData = get2ndUserData;
 module.exports.get3rdUserData = get3rdUserData;
 module.exports.get4thUserData = get4thUserData;
-module.exports.getHighestUserDataConsumed = getHighestUserDataConsumed;
+// module.exports.getHighestUserDataConsumed = getHighestUserDataConsumed;
