@@ -1,9 +1,7 @@
 var assert = require('assert');
-
 var functionsImports = require('../kata');
 
 describe("BURNERS AND EARNERS", function(){
-
       it('should find the typeof person() as function', function(){
     	    var expected = "function";
           var result = functionsImports.person;
@@ -55,7 +53,6 @@ describe("BURNERS AND EARNERS", function(){
           var expected = {"username": "Walter",
                           data: 67
                         };
-
           var result = functionsImports.getHighestUserDataConsumed();
 
 	      assert.deepEqual(expected, result);
