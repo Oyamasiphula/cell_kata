@@ -27,7 +27,7 @@ function get1StUserData(){
   allUserProperties.push(dataSumPerPerson);
   return dataSumPerPerson
 };
-get1StUserData();
+  get1StUserData();
   // in all the reason using the forin its because I wanted to get proper values from my object and regenerate
   // a new array values by converting my object
 
@@ -41,13 +41,14 @@ function get2ndUserData(){
           vals.split(",");
     var dataConsumed = vals.replace("“Damn, it was like ","")
                            .replace("MB. Dat Snaptalk is a data hog, yo.”","")
-                           .replace(",",":");
+                          //  .replace(",",":");
     dataSumPerPerson.push(dataConsumed);
   });
+  console.log(dataSumPerPerson);
   allUserProperties.push(dataSumPerPerson)
   return dataSumPerPerson
 };
-get2ndUserData()
+  get2ndUserData()
 
 function get3rdUserData(){
 
@@ -67,7 +68,7 @@ function get3rdUserData(){
     allUserProperties.push(dataSumPerPerson)
     return dataSumPerPerson
 };
-get3rdUserData();
+  get3rdUserData();
 
 function get4thUserData(){
     var dataSumPerPerson = []
@@ -86,37 +87,33 @@ function get4thUserData(){
     allUserProperties.push(dataSumPerPerson)
     return dataSumPerPerson
 };
-get4thUserData()
+  get4thUserData();
 
 // var toObject = function(allUserProperties){
-//
-//
-//
 // }
-
+//
 // allUserProperties.forEach(function(userProp){
 //   userProp.forEach(function(userDataVals){
-//     // console.log(typeof(userDataVals));
-//
-//   })
-// })
+//     console.log(userDataVals);
+//     userDataVals.split(" ");
+//   });
+// });
 
 // function getHighestUserDataConsumed(){
 // // console.log("")
 // return ""
 // }
 
-var stillToBeConverted = allUserProperties;
-  var collection = stillToBeConverted.slice(); // make a copy
-  var keys = collection.shift()
-
-  collection = collection.map(function (e) {
+  var dataCollection = allUserProperties.slice(); // make a copy
+  var keys = dataCollection.shift();
+  // console.log(keys);
+  dataCollection = dataCollection.map(function (e) {
       var obj = {};
 
       keys.forEach(function (key, i) {
           obj[key] = e[i];
       });
-      console.log(obj)
+      // console.log(obj);
       return obj;
   });
 
@@ -125,4 +122,5 @@ module.exports.get1StUserData = get1StUserData;
 module.exports.get2ndUserData = get2ndUserData;
 module.exports.get3rdUserData = get3rdUserData;
 module.exports.get4thUserData = get4thUserData;
+//
 // module.exports.getHighestUserDataConsumed = getHighestUserDataConsumed;
