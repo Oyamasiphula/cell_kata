@@ -19,30 +19,33 @@ function get1StUserData(){
 };
     firstPersonsDataSummary.forEach(function(vals){
     vals.split(",");
-    var userData = vals.replace("“It was ","")
+    var dataConsumed = vals.replace("“It was ","")
                    .replace("MB. Is that everything? I’m busy, you know.”","")
                    .replace(",",':');
-    dataSumPerPerson.push(userData)
+    dataSumPerPerson.push(dataConsumed.split(":"))
   });
   allUserProperties.push(dataSumPerPerson);
   return dataSumPerPerson
 };
   get1StUserData();
-  // in all the reason using the forin its because I wanted to get proper values from my object and regenerate
+  // in all the reason using the forin its because I wanted to get proper values from my object and to regenerate
   // a new array values by converting my object
 
 function get2ndUserData(){
     var dataSumPerPerson = []
     var secondPersonsDataSummary = [];
      for(var key in earner2){
+      //  console.log(key);
+      //  console.log(earner2);
     secondPersonsDataSummary.push(key + ", " + earner2[key]);
     };
     secondPersonsDataSummary.forEach(function(vals){
           vals.split(",");
+          console.log(vals);
     var dataConsumed = vals.replace("“Damn, it was like ","")
                            .replace("MB. Dat Snaptalk is a data hog, yo.”","")
-                          //  .replace(",",":");
-    dataSumPerPerson.push(dataConsumed);
+                           .replace(",",":");
+    dataSumPerPerson.push(dataConsumed.split(":"));
   });
   console.log(dataSumPerPerson);
   allUserProperties.push(dataSumPerPerson)
@@ -63,7 +66,7 @@ function get3rdUserData(){
       var dataConsumed = vals.replace("“I think ","")
                               .replace("MB. That’s what the guy at the store said. I think it means MegaBites.”","")
                               .replace(",",":");
-      dataSumPerPerson.push(dataConsumed)
+      dataSumPerPerson.push(dataConsumed.split(":"))
     });
     allUserProperties.push(dataSumPerPerson)
     return dataSumPerPerson
@@ -82,7 +85,7 @@ function get4thUserData(){
       var dataConsumed = vals.replace("“Around ","")
                               .replace("MB. I have the receipts if you need more precise figures.”","")
                               .replace(",",":");
-      dataSumPerPerson.push(dataConsumed)
+      dataSumPerPerson.push(dataConsumed.split(":"))
     });
     allUserProperties.push(dataSumPerPerson)
     return dataSumPerPerson
@@ -103,19 +106,23 @@ function get4thUserData(){
 // // console.log("")
 // return ""
 // }
+// console.log(allUserProperties);
+allUserProperties.forEach(function(newUserPropertiesList){
+  // var dataCollection = allUserProperties.slice(); // make a copy
+  // var keys = dataCollection.shift();
+  newUserPropertiesList.forEach(function(userPropertiesList){
 
-  var dataCollection = allUserProperties.slice(); // make a copy
-  var keys = dataCollection.shift();
-  // console.log(keys);
-  dataCollection = dataCollection.map(function (e) {
-      var obj = {};
+  var username = userPropertiesList[[0]].replace("], [",",");
+  var property = userPropertiesList[[1]].replace("",":");
 
-      keys.forEach(function (key, i) {
-          obj[key] = e[i];
-      });
-      // console.log(obj);
-      return obj;
-  });
+  console.log(username);
+  console.log(username);
+
+  })
+})
+
+
+
 
 module.exports.person = person;
 module.exports.get1StUserData = get1StUserData;
