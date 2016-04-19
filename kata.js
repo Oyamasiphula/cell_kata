@@ -1,4 +1,5 @@
 var allUserProperties = [];
+var newUserDataSpec = [];
 
 var person = function(name, dataSum) {
     this.username = name;
@@ -41,13 +42,13 @@ function get2ndUserData(){
     };
     secondPersonsDataSummary.forEach(function(vals){
           vals.split(",");
-          console.log(vals);
+          // console.log(vals);
     var dataConsumed = vals.replace("“Damn, it was like ","")
                            .replace("MB. Dat Snaptalk is a data hog, yo.”","")
                            .replace(",",":");
     dataSumPerPerson.push(dataConsumed.split(":"));
   });
-  console.log(dataSumPerPerson);
+
   allUserProperties.push(dataSumPerPerson)
   return dataSumPerPerson
 };
@@ -88,6 +89,7 @@ function get4thUserData(){
       dataSumPerPerson.push(dataConsumed.split(":"))
     });
     allUserProperties.push(dataSumPerPerson)
+    // console.log(dataSumPerPerson);
     return dataSumPerPerson
 };
   get4thUserData();
@@ -108,22 +110,18 @@ function get4thUserData(){
 // }
 // console.log(allUserProperties);
 allUserProperties.forEach(function(newUserPropertiesList){
-  // var dataCollection = allUserProperties.slice(); // make a copy
-  // var keys = dataCollection.shift();
   newUserPropertiesList.forEach(function(userPropertiesList){
+        var userPropertiesList = userPropertiesList.join("'] ['")
+                              .replace("'] [' ",":");
+newUserDataSpec.push(userPropertiesList);
 
-  var username = userPropertiesList[[0]].replace("], [",",");
-  var property = userPropertiesList[[1]].replace("",":");
+  });
+});
+console.log(newUserDataSpec[0],newUserDataSpec[1]);
+for(var x in newUserDataSpec){
+console.log();
 
-  console.log(username);
-  console.log(username);
-
-  })
-})
-
-
-
-
+}
 module.exports.person = person;
 module.exports.get1StUserData = get1StUserData;
 module.exports.get2ndUserData = get2ndUserData;
